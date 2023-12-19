@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ otherClasses }) => {
   return (
     <nav
       className={cn(
-        "flex flex-col justify-between flex-1 bg-zinc-50 dark:bg-neutral-900 p-6",
+        "flex flex-col justify-between bg-zinc-50 dark:bg-neutral-900 p-6 w-full",
         otherClasses
       )}
     >

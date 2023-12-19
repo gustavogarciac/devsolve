@@ -7,6 +7,7 @@ import { NavItem } from "./nav-item";
 import { SignOutButton, SignedIn, UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { LogOutIcon } from "lucide-react";
+import { ThemeSwitcher } from "./shared/theme-switcher";
 
 export const MobileNavbar = () => {
   const user = useUser();
@@ -27,16 +28,19 @@ export const MobileNavbar = () => {
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent className="bg-zinc-50 dark:bg-neutral-900 py-12 flex flex-col justify-between">
-        <div className="flex items-center gap-x-4 mb-4">
-          <UserButton />
-          <div>
-            <span className="text-sm text-foreground font-medium">
-              {user.user?.fullName}
-            </span>
-            <span className="text-xs text-muted-foreground">
-              {user.user?.username}
-            </span>
+        <div className="flex items-start justify-between">
+          <div className="flex items-center gap-x-4 mb-4">
+            <UserButton />
+            <div>
+              <span className="text-sm text-foreground font-medium">
+                {user.user?.fullName}
+              </span>
+              <span className="text-xs text-muted-foreground">
+                {user.user?.username}
+              </span>
+            </div>
           </div>
+          <ThemeSwitcher />
         </div>
 
         <NavItem />

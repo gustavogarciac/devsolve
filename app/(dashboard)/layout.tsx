@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { Navbar } from "@/components/navbar";
+import { RightNavbar } from "@/components/right-navbar";
 import React from "react";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -9,6 +10,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex h-full flex-1">
         <Navbar otherClasses="hidden lg:flex max-w-xs" />
         {children}
+        <RightNavbar />
       </div>
     </div>
   );
