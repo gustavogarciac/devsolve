@@ -1,11 +1,23 @@
+import { prisma } from "@/lib/prisma";
 import { LocalSearch } from "@/components/search/local-search";
 import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Button } from "@/components/ui/button";
 import { SearchIcon } from "lucide-react";
 import Link from "next/link";
+import { HomeCard } from "@/components/cards/home-card";
 
-export default function Home() {
+export default async function Home() {
+  const questions =
+    (await prisma.question.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        tags: true,
+      },
+    })) || [];
+
   return (
     <Container>
       <div className="flex items-center justify-between">
@@ -22,6 +34,12 @@ export default function Home() {
         icon={<SearchIcon />}
         containerClasses="mt-5"
       />
+
+      <ul className="mt-10">
+        {questions.map((question) => (
+          <HomeCard key={question.id} data={question} />
+        ))}
+      </ul>
     </Container>
   );
 }

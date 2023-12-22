@@ -16,7 +16,7 @@ export const LocalSearch: React.FC<LocalSearchProps> = ({
   return (
     <div
       className={cn(
-        "flex gap-x-2 items-center bg-zinc-50 dark:bg-zinc-900 px-2 py-1 rounded-md",
+        "flex gap-x-2 items-center bg-zinc-50 dark:bg-neutral-900 px-2 py-1 rounded-md",
         containerClasses
       )}
     >

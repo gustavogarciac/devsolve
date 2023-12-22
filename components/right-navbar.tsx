@@ -5,7 +5,7 @@ import { TagLabel } from "./shared/tag-label";
 
 export const RightNavbar = () => {
   return (
-    <div className="flex flex-col justify-between bg-zinc-50 dark:bg-neutral-900 p-6 w-full max-w-[20rem]">
+    <div className="hidden lg:flex flex-col justify-between bg-zinc-50 dark:bg-neutral-900 p-6 w-full max-w-[20rem]">
       <div className="space-y-4">
         <h2 className="font-bold text-lg">Hot Network</h2>
         <Link href={""} className="flex items-center justify-between">
