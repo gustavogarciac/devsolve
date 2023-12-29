@@ -35,7 +35,7 @@ export default async function Home() {
         containerClasses="mt-5"
       />
 
-      <ul className="mt-10">
+      <ul className="mt-10 space-y-4">
         {questions.map((question) => (
           <HomeCard key={question.id} data={question} />
         ))}

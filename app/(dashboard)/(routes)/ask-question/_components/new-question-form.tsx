@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -42,6 +42,7 @@ const newQuestionSchema = z.object({
 type newQuestionSchemaType = z.infer<typeof newQuestionSchema>;
 
 export const NewQuestionForm = ({ otherClasses }: NewQuestionFormProps) => {
+  const editorRef = useRef(null);
   const userId = useUser().user?.id;
   const { theme } = useTheme();
   const form = useForm<newQuestionSchemaType>({
