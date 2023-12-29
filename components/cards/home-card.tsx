@@ -25,8 +25,6 @@ export const HomeCard = ({ data }: HomeCardProps) => {
         ))}
       </div>
 
-      <p>{data.description}</p>
-
       <div className="flex xl:flex-row flex-col justify-between gap-2">
         <div className="flex flex-row gap-x-2 items-center">
           {/* TODO: Author Name */}

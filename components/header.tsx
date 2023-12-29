@@ -14,7 +14,7 @@ export const Header = () => {
   const [onOpen] = useMobileNavbar((state) => [state.onOpen]);
 
   return (
-    <div className="flex items-center justify-between dark:bg-neutral-900 p-6 shadow-sm bg-zinc-50">
+    <div className="fixed left-0 right-0 flex items-center justify-between dark:bg-neutral-900 p-6 shadow-sm bg-zinc-50">
       <Logo />
       <Button variant={"ghost"} onClick={onOpen} className="lg:hidden">
         <MenuIcon className="h-6 w-6" />

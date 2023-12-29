@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ParseHTML } from "@/components/shared/parse-html";
+import { TagLabel } from "@/components/shared/tag-label";
 
 const QuestionDetailsPage = async ({
   params,
@@ -23,6 +24,9 @@ const QuestionDetailsPage = async ({
 }) => {
   const question = await prisma.question.findUnique({
     where: { id: params.questionId },
+    include: {
+      tags: true,
+    },
   });
 
   if (!question)
@@ -64,6 +68,12 @@ const QuestionDetailsPage = async ({
       </div>
 
       <ParseHTML data={question.description} otherClasses="mt-10" />
+
+      <ul className="mt-10 flex flex-row flex-wrap items-center gap-x-4">
+        {question.tags.map((tag) => (
+          <TagLabel key={tag.id} label={tag.name} size="large" />
+        ))}
+      </ul>
     </Container>
   );
 };
